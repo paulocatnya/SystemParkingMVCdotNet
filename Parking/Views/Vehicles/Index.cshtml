@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Parking.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Vehicles Registration";
+}
+
+<h1>@ViewData["Title"] </h1>
+<hr />
+<p>
+    <a asp-action="Create" class="alert-success alert">Check-in</a>
+</p>
+<br>
+<table class="table table-bordered table-hover table-light">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Plate)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Input)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Output)
+            </th>
+
+            <th class="text-center">Functions</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Plate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Input)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Output)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="alert-danger alert a" asp-route-id="@item.Id">Saída</a> |
+                    <a asp-action="Details" class="alert-link alert " asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" class="alert-warning alert " asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

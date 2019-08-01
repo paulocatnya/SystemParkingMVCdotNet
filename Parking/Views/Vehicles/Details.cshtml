@@ -1,0 +1,55 @@
+﻿@model Parking.Models.ViewModels.VehicleFormViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Plate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.Plate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Input)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.Input)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Output)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.Output)
+        </dd>
+        <dt class="col-sm-2">
+            Total Time
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TotalTime.ToString("F2") min
+        </dd>
+        <dt class="col-sm-2">
+            Total Price
+        </dt>
+        <dd class="col-sm-10">
+            R$ @Model.TotalPrice.ToString("F2")
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="Index" class="alert-dismissible alert">Back to List</a>
+    <a asp-action="Edit" class="alert-danger alert" asp-route-id="@Model.Vehicle.Id">CheckOut</a> |
+</div>
